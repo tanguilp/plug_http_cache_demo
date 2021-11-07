@@ -33,6 +33,7 @@ defmodule PhoenixHttpCacheDemo.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:phoenix, "~> 1.6.2"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -46,7 +47,8 @@ defmodule PhoenixHttpCacheDemo.MixProject do
       {:cowlib, git: "https://github.com/tanguilp/cowlib.git", override: true},
       {:http_cache, path: "../http_cache", override: true},
       {:plug_http_cache, path: "../plug_http_cache"},
-      {:http_cache_store_native, path: "../http_cache_store_native"}
+      {:http_cache_store_native, path: "../http_cache_store_native"},
+      {:plug_cache_control, "~> 0.2.0"}
     ]
   end
 

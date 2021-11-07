@@ -4,9 +4,11 @@
 
 <section>
   <h2>Info</h2>
-  <ul>
-    <li>
-      Number: <%= @number %>
-    </li>
-  </ul>
+  <p style="overflow-wrap: break-word;">
+      <%= if @number do %>
+      fibo(<%= @number %>) = <%= @result %>
+      <% else %>
+      Use query param <code>number</code> to calculate its Fibonacci number
+      <% end %>
+  </p>
 </section>

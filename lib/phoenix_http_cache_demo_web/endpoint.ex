@@ -38,7 +38,12 @@ defmodule PhoenixHttpCacheDemoWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Phoenix.json_library()
 
-  plug Plug.MethodOverride
+  plug PlugHTTPCache, http_cache: [
+    type: :shared,
+    store: :http_cache_store_native,
+    auto_compress: true,
+    auto_accept_encoding: true
+  ]
   plug Plug.Head
   plug Plug.Session, @session_options
   plug PhoenixHttpCacheDemoWeb.Router
