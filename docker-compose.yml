@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  demo1:
+    build:
+      context: .
+    ports:
+      - "4000:4000"

@@ -3,12 +3,31 @@
 </section>
 
 <section>
-  <h2>Info</h2>
+  <h2>Calculate</h2>
   <p style="overflow-wrap: break-word;">
-      <%= if @number do %>
-      fibo(<%= @number %>) = <%= @result %>
-      <% else %>
-      Use query param <code>number</code> to calculate its Fibonacci number
-      <% end %>
+    <%= form_for @conn, "/fibo", [method: :get], fn f -> %>
+    <%= text_input f, :number %>
+    <%= submit "Go" %>
+    <% end %>
+  </p>
+
+  <h2>Invalidate URI</h2>
+  <p style="overflow-wrap: break-word;">
+    <%= form_for @conn, "/", [], fn f -> %>
+    <%= text_input f, :url %>
+    <%= submit "Invalidate" %>
+    <% end %>
+  </p>
+
+  <h2>Invalidate by alternate key</h2>
+  <p style="overflow-wrap: break-word;">
+    <%= form_for @conn, "/", [], fn f -> %>
+    <%= submit "Even numbers", name: "multiple", value: 2 %>
+    <%= submit "Multiples of 3", name: "multiple", value: 3 %>
+    <%= submit "Multiples of 5", name: "multiple", value: 5 %>
+    <%= submit "Multiples of 7", name: "multiple", value: 7 %>
+    <%= submit "Multiples of 11", name: "multiple", value: 11 %>
+    <%= submit "Multiples of 20", name: "multiple", value: 20 %>
+    <% end %>
   </p>
 </section>

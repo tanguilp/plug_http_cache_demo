@@ -10,8 +10,9 @@ defmodule PhoenixHttpCacheDemoWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :public do
-    plug PlugCacheControl, directives: [:public, s_maxage: 120]
+  pipeline :cache do
+    plug PlugHTTPCache, Application.get_env(:phoenix_http_cache_demo, :plug_http_cache_opts)
+    plug PlugCacheControl, directives: [:public, s_maxage: 60 * 10]
   end
 
   pipeline :api do
@@ -20,9 +21,14 @@ defmodule PhoenixHttpCacheDemoWeb.Router do
 
   scope "/", PhoenixHttpCacheDemoWeb do
     pipe_through :browser
-    pipe_through :public
 
     get "/", PageController, :index
+    post "/", PageController, :invalidate
+
+    scope "/fibo" do
+      pipe_through :cache
+      get "/", FiboController, :index
+    end
   end
 
   # Other scopes may use custom stacks.

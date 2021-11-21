@@ -14,6 +14,13 @@ config :phoenix_http_cache_demo, PhoenixHttpCacheDemoWeb.Endpoint,
   pubsub_server: PhoenixHttpCacheDemo.PubSub,
   live_view: [signing_salt: "/THIbzR3"]
 
+config :phoenix_http_cache_demo, :plug_http_cache_opts, http_cache: [
+      type: :shared,
+      store: :http_cache_store_native,
+      auto_compress: true,
+      auto_accept_encoding: true
+    ]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.12.18",
