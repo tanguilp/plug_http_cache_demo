@@ -1,4 +1,4 @@
-defmodule PhoenixHttpCacheDemoWeb.ErrorHelpers do
+defmodule PlugHTTPCacheDemoWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """

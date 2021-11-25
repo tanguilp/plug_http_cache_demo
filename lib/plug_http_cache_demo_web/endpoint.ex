@@ -1,12 +1,12 @@
-defmodule PhoenixHttpCacheDemoWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :phoenix_http_cache_demo
+defmodule PlugHTTPCacheDemoWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :plug_http_cache_demo
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_phoenix_http_cache_demo_key",
+    key: "_plug_http_cache_demo_key",
     signing_salt: "B+tTxgsF"
   ]
 
@@ -18,7 +18,7 @@ defmodule PhoenixHttpCacheDemoWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :phoenix_http_cache_demo,
+    from: :plug_http_cache_demo,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -40,5 +40,5 @@ defmodule PhoenixHttpCacheDemoWeb.Endpoint do
 
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug PhoenixHttpCacheDemoWeb.Router
+  plug PlugHTTPCacheDemoWeb.Router
 end

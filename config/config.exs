@@ -8,13 +8,13 @@
 import Config
 
 # Configures the endpoint
-config :phoenix_http_cache_demo, PhoenixHttpCacheDemoWeb.Endpoint,
+config :plug_http_cache_demo, PlugHTTPCacheDemoWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: PhoenixHttpCacheDemoWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: PhoenixHttpCacheDemo.PubSub,
+  render_errors: [view: PlugHTTPCacheDemoWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: PlugHTTPCacheDemo.PubSub,
   live_view: [signing_salt: "/THIbzR3"]
 
-config :phoenix_http_cache_demo, :plug_http_cache_opts, http_cache: [
+config :plug_http_cache_demo, :plug_http_cache_opts, http_cache: [
       type: :shared,
       store: :http_cache_store_native,
       auto_compress: true,

@@ -1,9 +1,9 @@
-defmodule PhoenixHttpCacheDemo.MixProject do
+defmodule PlugHTTPCacheDemo.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :phoenix_http_cache_demo,
+      app: :plug_http_cache_demo,
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule PhoenixHttpCacheDemo.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {PhoenixHttpCacheDemo.Application, []},
+      mod: {PlugHTTPCacheDemo.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -48,7 +48,8 @@ defmodule PhoenixHttpCacheDemo.MixProject do
       {:http_cache, path: "../http_cache", override: true},
       {:plug_http_cache, path: "../plug_http_cache"},
       {:http_cache_store_native, path: "../http_cache_store_native"},
-      {:plug_cache_control, "~> 0.2.0"}
+      {:plug_cache_control, "~> 0.2.2"},
+      {:telemetry_metrics_statsd, "~> 0.6.0"}
     ]
   end
 

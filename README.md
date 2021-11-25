@@ -1,4 +1,4 @@
-# PhoenixHttpCacheDemo
+# PlugHTTPCacheDemo
 
 To start your Phoenix server:
 

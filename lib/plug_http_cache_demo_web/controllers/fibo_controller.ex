@@ -1,11 +1,11 @@
-defmodule PhoenixHttpCacheDemoWeb.FiboController do
-  use PhoenixHttpCacheDemoWeb, :controller
+defmodule PlugHTTPCacheDemoWeb.FiboController do
+  use PlugHTTPCacheDemoWeb, :controller
 
   @multiples [2, 3, 5, 7, 11, 20]
 
   def index(conn, %{"number" => number_str}) do
     {number, _} = Integer.parse(number_str)
-    result = PhoenixHttpCacheDemo.fib(number)
+    result = PlugHTTPCacheDemo.fib(number)
     conn
     |> set_alternate_keys(result)
     |> render("index.html", number: number_str, result: result)

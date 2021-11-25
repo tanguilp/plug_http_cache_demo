@@ -1,5 +1,5 @@
-defmodule PhoenixHttpCacheDemoWeb.ErrorView do
-  use PhoenixHttpCacheDemoWeb, :view
+defmodule PlugHTTPCacheDemoWeb.ErrorView do
+  use PlugHTTPCacheDemoWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

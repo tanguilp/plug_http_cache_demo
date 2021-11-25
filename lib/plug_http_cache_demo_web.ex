@@ -1,12 +1,12 @@
-defmodule PhoenixHttpCacheDemoWeb do
+defmodule PlugHTTPCacheDemoWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use PhoenixHttpCacheDemoWeb, :controller
-      use PhoenixHttpCacheDemoWeb, :view
+      use PlugHTTPCacheDemoWeb, :controller
+      use PlugHTTPCacheDemoWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,18 +19,18 @@ defmodule PhoenixHttpCacheDemoWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PhoenixHttpCacheDemoWeb
+      use Phoenix.Controller, namespace: PlugHTTPCacheDemoWeb
 
       import Plug.Conn
-      alias PhoenixHttpCacheDemoWeb.Router.Helpers, as: Routes
+      alias PlugHTTPCacheDemoWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/phoenix_http_cache_demo_web/templates",
-        namespace: PhoenixHttpCacheDemoWeb
+        root: "lib/plug_http_cache_demo_web/templates",
+        namespace: PlugHTTPCacheDemoWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -44,7 +44,7 @@ defmodule PhoenixHttpCacheDemoWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {PhoenixHttpCacheDemoWeb.LayoutView, "live.html"}
+        layout: {PlugHTTPCacheDemoWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -85,8 +85,8 @@ defmodule PhoenixHttpCacheDemoWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import PhoenixHttpCacheDemoWeb.ErrorHelpers
-      alias PhoenixHttpCacheDemoWeb.Router.Helpers, as: Routes
+      import PlugHTTPCacheDemoWeb.ErrorHelpers
+      alias PlugHTTPCacheDemoWeb.Router.Helpers, as: Routes
     end
   end
 

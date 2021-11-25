@@ -1,5 +1,5 @@
-defmodule PhoenixHttpCacheDemoWeb.LayoutView do
-  use PhoenixHttpCacheDemoWeb, :view
+defmodule PlugHTTPCacheDemoWeb.LayoutView do
+  use PlugHTTPCacheDemoWeb, :view
 
   # Phoenix LiveDashboard is available only in development by default,
   # so we instruct Elixir to not warn if the dashboard route is missing.

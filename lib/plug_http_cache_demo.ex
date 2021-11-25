@@ -1,6 +1,6 @@
-defmodule PhoenixHttpCacheDemo do
+defmodule PlugHTTPCacheDemo do
   @moduledoc """
-  PhoenixHttpCacheDemo keeps the contexts that define your domain
+  PlugHTTPCacheDemo keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
