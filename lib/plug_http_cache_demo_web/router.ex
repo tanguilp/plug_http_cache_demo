@@ -12,7 +12,7 @@ defmodule PlugHTTPCacheDemoWeb.Router do
 
   pipeline :cache do
     plug PlugHTTPCache, Application.get_env(:plug_http_cache_demo, :plug_http_cache_opts)
-    plug PlugCacheControl, directives: [:public, s_maxage: 60 * 10]
+    plug PlugCacheControl, directives: [:public, s_maxage: 60 * 20]
   end
 
   pipeline :api do

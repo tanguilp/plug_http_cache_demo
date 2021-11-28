@@ -1,0 +1,16 @@
+global:
+  scrape_interval:      1s
+  evaluation_interval:  1s
+
+scrape_configs:
+  # optional: this makes the metrics available to us about Promethus itself.
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # tells Prometheus to scrape metrics an address over port 9123
+  - job_name: 'test_metrics'
+    static_configs:
+      - targets: ['statsd_exporter:9102'] # see statsd-exporter further down
+        labels: {'host': 'test-app-001'} # optional: just a way to identify the system exposing metrics
+

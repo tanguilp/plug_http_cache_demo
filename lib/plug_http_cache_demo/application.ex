@@ -7,6 +7,12 @@ defmodule PlugHTTPCacheDemo.Application do
 
   import Telemetry.Metrics
 
+  @topologies [
+    docker_compose: [
+      strategy: Cluster.Strategy.Gossip
+    ]
+  ]
+
   @impl true
   def start(_type, _args) do
     children = [
@@ -18,7 +24,8 @@ defmodule PlugHTTPCacheDemo.Application do
       PlugHTTPCacheDemoWeb.Endpoint,
       # Start a worker by calling: PlugHTTPCacheDemo.Worker.start_link(arg)
       # {PlugHTTPCacheDemo.Worker, arg},
-      {Telemetry.Metrics.ConsoleReporter, metrics: metrics()}
+      {TelemetryMetricsStatsd, metrics: metrics(), host: "statsd_exporter"},
+      {Cluster.Supervisor, [@topologies, [name: PlugHTTPCacheDemo.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

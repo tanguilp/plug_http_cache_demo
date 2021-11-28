@@ -1,8 +1,69 @@
 version: "3.7"
 
 services:
-  demo1:
+  plug_http_cache_demo_1:
     build:
       context: .
+    environment:
+      - SECRET_KEY_BASE=pjjPgAWTgvfkeX3RqoAjhc9fpjMvyzuUAHI3UB+GEe9x8x0biSc/x8+fmWDCX3jP
+      - PORT=4000
+      - ERLANG_COOKIE=its_a_secret
     ports:
       - "4000:4000"
+    depends_on:
+      - statsd_exporter
+  plug_http_cache_demo_2:
+    build:
+      context: .
+    environment:
+      - SECRET_KEY_BASE=pjjPgAWTgvfkeX3RqoAjhc9fpjMvyzuUAHI3UB+GEe9x8x0biSc/x8+fmWDCX3jP
+      - PORT=4001
+      - ERLANG_COOKIE=its_a_secret
+    ports:
+      - "4001:4001"
+    depends_on:
+      - statsd_exporter
+  plug_http_cache_demo_3:
+    build:
+      context: .
+    environment:
+      - SECRET_KEY_BASE=pjjPgAWTgvfkeX3RqoAjhc9fpjMvyzuUAHI3UB+GEe9x8x0biSc/x8+fmWDCX3jP
+      - PORT=4002
+      - ERLANG_COOKIE=its_a_secret
+    ports:
+      - "4002:4002"
+    depends_on:
+      - statsd_exporter
+  statsd_exporter:
+    image: prom/statsd-exporter
+    environment:
+      - STATSD_PORT=9125
+    command:
+      - --statsd.listen-udp=:8125
+      - --web.listen-address=:9102
+    ports:
+      - 8125:8125/udp
+      - 9102:9102
+  prometheus:
+    image: prom/prometheus
+    ports:
+    - 9090:9090
+    links:
+    - statsd_exporter
+    volumes:
+    - ./prometheus.yml:/prometheus.yml
+    command:
+    - --config.file=/prometheus.yml
+    - --log.level=debug
+    - --web.listen-address=:9090
+    - --web.page-title='Prometheus - Test Metrics Demo'
+    depends_on:
+      - statsd_exporter
+  grafana:
+    image: grafana/grafana
+    links:
+    - prometheus
+    ports:
+    - 3000:3000
+    depends_on:
+      - prometheus

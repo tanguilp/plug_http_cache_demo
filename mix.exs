@@ -44,12 +44,12 @@ defmodule PlugHTTPCacheDemo.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:cowlib, git: "https://github.com/tanguilp/cowlib.git", override: true},
-      {:http_cache, path: "../http_cache", override: true},
-      {:plug_http_cache, path: "../plug_http_cache"},
-      {:http_cache_store_native, path: "../http_cache_store_native"},
+      {:cowlib, github: "tanguilp/cowlib", override: true},
+      {:http_cache_store_native, github: "tanguilp/http_cache_store_native"},
+      {:plug_http_cache, github: "tanguilp/plug_http_cache"},
       {:plug_cache_control, "~> 0.2.2"},
-      {:telemetry_metrics_statsd, "~> 0.6.0"}
+      {:telemetry_metrics_statsd, "~> 0.6.0"},
+      {:libcluster, "~> 3.0"}
     ]
   end
 
