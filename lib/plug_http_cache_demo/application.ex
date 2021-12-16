@@ -24,7 +24,7 @@ defmodule PlugHTTPCacheDemo.Application do
       PlugHTTPCacheDemoWeb.Endpoint,
       # Start a worker by calling: PlugHTTPCacheDemo.Worker.start_link(arg)
       # {PlugHTTPCacheDemo.Worker, arg},
-      {TelemetryMetricsStatsd, metrics: metrics(), host: "statsd_exporter"},
+      {TelemetryMetricsStatsd, metrics: metrics(), host: "statsd_exporter", formatter: :datadog},
       {Cluster.Supervisor, [@topologies, [name: PlugHTTPCacheDemo.ClusterSupervisor]]}
     ]
 
@@ -42,12 +42,14 @@ defmodule PlugHTTPCacheDemo.Application do
     :ok
   end
 
-  def metrics() do
+  defp metrics() do
     [
-      last_value("http_cache_store_native.memory.total_mem", unit: :byte),
-      last_value("http_cache_store_native.memory.objects_mem", unit: :byte),
-      last_value("http_cache_store_native.memory.lru_mem", unit: :byte),
-      last_value("http_cache_store_native.memory.objects_count")
+      last_value("http_cache_store_native.memory.total_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
+      last_value("http_cache_store_native.memory.objects_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
+      last_value("http_cache_store_native.memory.lru_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
+      last_value("http_cache_store_native.memory.objects_count", tag_values: &add_node/1, tags: [:node])
     ]
   end
+
+  defp add_node(tags), do: Map.put(tags, :node, node())
 end
