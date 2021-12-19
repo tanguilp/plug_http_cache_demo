@@ -47,7 +47,9 @@ defmodule PlugHTTPCacheDemo.Application do
       last_value("http_cache_store_native.memory.total_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
       last_value("http_cache_store_native.memory.objects_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
       last_value("http_cache_store_native.memory.lru_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
-      last_value("http_cache_store_native.memory.objects_count", tag_values: &add_node/1, tags: [:node])
+      last_value("http_cache_store_native.memory.objects_count", tag_values: &add_node/1, tags: [:node]),
+      counter("http_cache.compress_operation.count", event_name: [:http_cache, :compress_operation], tag_values: &add_node/1, tags: [:node]),
+      counter("http_cache.uncompress_operation.count", event_name: [:http_cache, :uncompress_operation], tag_values: &add_node/1, tags: [:node]),
     ]
   end
 
