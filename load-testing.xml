@@ -2,7 +2,7 @@
 <!DOCTYPE tsung SYSTEM "/usr/share/tsung/tsung-1.0.dtd" [] >
 <tsung loglevel="info">
   <clients>
-    <client host="localhost" use_controller_vm="true"/>
+    <client host="localhost" use_controller_vm="true" maxusers="100000"/>
   </clients>
 
   <servers>
@@ -13,12 +13,24 @@
 
   <load>
     <arrivalphase phase="1" duration="6" unit="hour">
-      <users arrivalrate="500" unit="second"></users>
+      <users arrivalrate="1000" unit="second"></users>
     </arrivalphase>
   </load>
 
   <sessions>
-    <session name="get_data" weight="1" type="ts_http">
+    <session name="get_data_compressed" weight="95" type="ts_http">
+      <setdynvars sourcetype="eval" code="fun({_Pid, _DynVars}) -> trunc(abs(rand:normal()) * 20000) end.">
+        <var name="number" />
+      </setdynvars>
+
+      <request subst="true">
+        <http url="/fibo?number=%%_number%%" method="GET" version="1.1">
+          <http_header name="accept-encoding" value="gzip"/>
+        </http>
+      </request>
+    </session>
+
+    <session name="get_data_uncompressed" weight="5" type="ts_http">
       <setdynvars sourcetype="eval" code="fun({_Pid, _DynVars}) -> trunc(abs(rand:normal()) * 10000) end.">
         <var name="number" />
       </setdynvars>
