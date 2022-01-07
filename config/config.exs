@@ -21,6 +21,8 @@ config :plug_http_cache_demo, :plug_http_cache_opts, http_cache: [
       auto_accept_encoding: true
     ]
 
+config :http_cache_store_native, :memory_limit, 1024 * 1024 * 125
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.12.18",
