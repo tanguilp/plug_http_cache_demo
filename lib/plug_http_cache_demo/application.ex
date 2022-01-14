@@ -55,6 +55,7 @@ defmodule PlugHTTPCacheDemo.Application do
       last_value("http_cache_store_native.memory.lru_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
       last_value("http_cache_store_native.memory.objects_count", tag_values: &add_node/1, tags: [:node]),
       summary("http_cache_store_native.lru_nuker.stop.duration", unit: {:native, :microsecond}, tag_values: &add_node/1, tags: [:node]),
+      summary("http_cache_store_native.expired_lru_entry_sweeper.stop.duration", unit: {:native, :microsecond}, tag_values: &add_node/1, tags: [:node]),
       summary("http_cache_store_native.expired_resp_sweeper.stop.duration", unit: {:native, :microsecond}, tag_values: &add_node/1, tags: [:node]),
       counter("plug_http_cache.hit.count", event: [:plug_http_cache, :hit], tag_values: &add_node/1, tags: [:node]),
       counter("plug_http_cache.miss.count", event: [:plug_http_cache, :miss], tag_values: &add_node/1, tags: [:node]),

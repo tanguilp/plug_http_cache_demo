@@ -45,8 +45,8 @@ defmodule PlugHTTPCacheDemo.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:cowlib, github: "tanguilp/cowlib", override: true},
-      {:http_cache_store_native, github: "tanguilp/http_cache_store_native"},
       {:plug_http_cache, github: "tanguilp/plug_http_cache"},
+      {:http_cache_store_native, github: "tanguilp/http_cache_store_native"},
       {:plug_cache_control, "~> 0.2.2"},
       {:telemetry_metrics_statsd, "~> 0.6.0"},
       {:libcluster, "~> 3.0"}

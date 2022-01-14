@@ -10,7 +10,7 @@
   "floki": {:hex, :floki, "0.32.0", "f915dc15258bc997d49be1f5ef7d3992f8834d6f5695270acad17b41f5bcc8e2", [:mix], [{:html_entities, "~> 0.5.0", [hex: :html_entities, repo: "hexpm", optional: false]}], "hexpm", "1c5a91cae1fd8931c26a4826b5e2372c284813904c8bacb468b5de39c7ececbd"},
   "html_entities": {:hex, :html_entities, "0.5.2", "9e47e70598da7de2a9ff6af8758399251db6dbb7eebe2b013f2bbd2515895c3c", [:mix], [], "hexpm", "c53ba390403485615623b9531e97696f076ed415e8d8058b1dbaa28181f4fdcc"},
   "http_cache": {:git, "https://github.com/tanguilp/http_cache.git", "8cec6a20356097ba51e87321cb50ba02ce3a1db6", []},
-  "http_cache_store_native": {:git, "https://github.com/tanguilp/http_cache_store_native.git", "fb069621f4b32bf456479d6ec71a50ceb1b3706b", []},
+  "http_cache_store_native": {:git, "https://github.com/tanguilp/http_cache_store_native.git", "fb511dbd9fde67d3b775496f630c191e3bdf6a4d", []},
   "jason": {:hex, :jason, "1.3.0", "fa6b82a934feb176263ad2df0dbd91bf633d4a46ebfdffea0c8ae82953714946", [:mix], [{:decimal, "~> 1.0 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm", "53fc1f51255390e0ec7e50f9cb41e751c260d065dcba2bf0d08dc51a4002c2ac"},
   "libcluster": {:hex, :libcluster, "3.3.0", "f7d45ff56d88e9fb4c30aee662480cbab69ebc0e7f7da4ad8d01b1e4f7492da8", [:mix], [{:jason, "~> 1.1", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm", "ecdcdc88334ec8eb18b10a13a1d5f22a3319a970b5b1e66cfe71c7719a4ab6cc"},
   "mime": {:hex, :mime, "2.0.2", "0b9e1a4c840eafb68d820b0e2158ef5c49385d17fb36855ac6e7e087d4b1dcc5", [:mix], [], "hexpm", "e6a3f76b4c277739e36c2e21a2c640778ba4c3846189d5ab19f97f126df5f9b7"},
