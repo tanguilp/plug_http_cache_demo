@@ -23,7 +23,7 @@ in the shell to install dependencies.
 ### Launch locally
 
 Type `mix phx.server` (or `iex -S mix phx.server` to have a shell) and visit
-[localhost:4000](localhost:4000).
+[localhost:4000](http://localhost:4000).
 
 In some browsers, typing the F5 key forces a refresh of the page (that is, without
 caching). You better type the Enter key in the address bar to make sure cached
@@ -38,9 +38,9 @@ docker-compose build && docker-compose up --renew-anon-volumes
 ```
 
 Then visit the 3 instances:
-- [localhost:4000](localhost:4000)
-- [localhost:4001](localhost:4001)
-- [localhost:4002](localhost:4002)
+- [localhost:4000](http://localhost:4000)
+- [localhost:4001](http://localhost:4001)
+- [localhost:4002](http://localhost:4002)
 
 and the dashboard: [http://localhost:3000](http://localhost:3000). The login
 and password are bot *admin*. Then click on `http_cache dashboard`.
