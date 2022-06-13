@@ -6,7 +6,7 @@ defmodule PlugHTTPCacheDemoWeb.PageController do
   end
 
   def invalidate(conn, %{"url" => url}) do
-    http_cache_opts = Application.get_env(:plug_http_cache_demo, :plug_http_cache_opts)[:http_cache]
+    http_cache_opts = Application.get_env(:plug_http_cache_demo, :plug_http_cache_opts)
 
     case :http_cache.invalidate_url(url, http_cache_opts) do
       {:ok, :undefined} ->
@@ -22,7 +22,7 @@ defmodule PlugHTTPCacheDemoWeb.PageController do
   end
 
   def invalidate(conn, %{"multiple" => multiple_str}) do
-    http_cache_opts = Application.get_env(:plug_http_cache_demo, :plug_http_cache_opts)[:http_cache]
+    http_cache_opts = Application.get_env(:plug_http_cache_demo, :plug_http_cache_opts)
 
     {multiple, _} = Integer.parse(multiple_str)
 

@@ -6,6 +6,7 @@ defmodule PlugHTTPCacheDemoWeb.FiboController do
   def index(conn, %{"number" => number_str}) do
     {number, _} = Integer.parse(number_str)
     result = PlugHTTPCacheDemo.fib(number)
+
     conn
     |> set_alternate_keys(result)
     |> render("index.html", number: number_str, result: result)
