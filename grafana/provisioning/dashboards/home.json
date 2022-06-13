@@ -22,8 +22,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1642191061582,
+  "iteration": 1655130577588,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -114,7 +113,7 @@
           "refId": "A"
         }
       ],
-      "title": "Cache hits",
+      "title": "Hit rate",
       "type": "timeseries"
     },
     {
@@ -815,7 +814,7 @@
               }
             ]
           },
-          "unit": "decbytes"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -899,7 +898,7 @@
               }
             ]
           },
-          "unit": "decbytes"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -1007,9 +1006,9 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(plug_http_cache_overloaded_count{node=~\"$node\"}[5m])",
+          "expr": "rate(http_cache_store_error{node=~\"$node\"}[5m])",
           "interval": "",
-          "legendFormat": "Discarded responses ({{node}})",
+          "legendFormat": "Backend store errors ({{node}})",
           "refId": "A"
         }
       ],
@@ -1028,10 +1027,10 @@
         "current": {
           "selected": true,
           "text": [
-            "All"
+            "plug_http_cache_demo@f850134b6c0b"
           ],
           "value": [
-            "$__all"
+            "plug_http_cache_demo@f850134b6c0b"
           ]
         },
         "datasource": null,
@@ -1064,5 +1063,5 @@
   "timezone": "",
   "title": "http_cache dashboard",
   "uid": "2jcRkPpnk",
-  "version": 25
+  "version": 1
 }
