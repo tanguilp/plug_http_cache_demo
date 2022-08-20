@@ -51,7 +51,7 @@ defmodule PlugHTTPCacheDemo.Application do
       summary("http_cache.cache.total_time", unit: :microsecond, tag_values: &add_node/1, tags: [:node]),
       counter("http_cache.cache.total_time", event_name: [:http_cache, :cache_operation], tag_values: &add_node/1, tags: [:node]),
       counter("http_cache.compress_operation.count", event_name: [:http_cache, :compress_operation], tag_values: &add_node/1, tags: [:node]),
-      counter("http_cache.store.error", tag_values: &add_node/1, tags: [:node, :reason]),
+      counter("http_cache.store.error.count", event_name: [:http_cache, :store, :error], tag_values: &add_node/1, tags: [:node, :reason]),
       counter("http_cache.decompress_operation.count", event_name: [:http_cache, :decompress_operation], tag_values: &add_node/1, tags: [:node]),
       counter("http_cache_store_native.object_deleted.count", event_name: [:http_cache_store_native, :object_deleted], tag_values: &add_node/1, tags: [:node, :reason]),
       last_value("http_cache_store_native.memory.total_mem", unit: :byte, tag_values: &add_node/1, tags: [:node]),
