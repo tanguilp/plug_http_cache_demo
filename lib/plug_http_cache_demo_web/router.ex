@@ -13,7 +13,6 @@ defmodule PlugHTTPCacheDemoWeb.Router do
   end
 
   pipeline :cache_responses do
-    plug PlugCacheControl, directives: [:public]
     plug PlugCacheControl, directives: [:public, s_maxage: 60 * 20]
   end
 
