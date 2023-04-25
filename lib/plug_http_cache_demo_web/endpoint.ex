@@ -10,7 +10,7 @@ defmodule PlugHTTPCacheDemoWeb.Endpoint do
     signing_salt: "B+tTxgsF"
   ]
 
-  # socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  socket "/live", Phoenix.LiveView.Socket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
