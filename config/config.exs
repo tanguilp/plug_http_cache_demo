@@ -14,10 +14,10 @@ config :plug_http_cache_demo, PlugHTTPCacheDemoWeb.Endpoint,
   pubsub_server: PlugHTTPCacheDemo.PubSub,
   live_view: [signing_salt: "/THIbzR3"]
 
-config :plug_http_cache_demo, :plug_http_cache_opts, %{store: :http_cache_store_native}
+config :plug_http_cache_demo, :plug_http_cache_opts, %{store: :http_cache_store_memory}
 
-config :http_cache_store_native, :memory_limit, 1024 * 1024 * 120
-config :http_cache_store_native, :cluster_enabled, true
+config :http_cache_store_memory, :memory_limit, 1024 * 1024 * 120
+config :http_cache_store_memory, :cluster_enabled, true
 
 # Configure esbuild (the version is required)
 config :esbuild,
