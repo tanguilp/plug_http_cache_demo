@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1661023701685,
+  "iteration": 1686924526015,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -193,7 +193,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_memory_objects_count{node=~\"$node\"}",
+          "expr": "http_cache_store_memory_memory_objects_count{node=~\"$node\"}",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{node}}",
@@ -277,7 +277,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_memory_total_mem{node=~\"$node\"}",
+          "expr": "http_cache_store_memory_memory_total_mem{node=~\"$node\"}",
           "interval": "",
           "legendFormat": "{{node}}",
           "refId": "A"
@@ -359,14 +359,14 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(http_cache_store_native_object_deleted_count{node=~\"$node\", reason=\"alternate_key_invalidation\"}[1m])",
+          "expr": "rate(http_cache_store_memory_object_deleted_count{node=~\"$node\", reason=\"alternate_key_invalidation\"}[1m])",
           "interval": "",
           "legendFormat": "Alternate key invalidation ({{node}})",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "rate(http_cache_store_native_object_deleted_count{node=~\"$node\", reason=\"url_invalidation\"}[1m])",
+          "expr": "rate(http_cache_store_memory_object_deleted_count{node=~\"$node\", reason=\"url_invalidation\"}[1m])",
           "hide": false,
           "interval": "",
           "legendFormat": "URL invalidation ({{node}})",
@@ -374,7 +374,7 @@
         },
         {
           "exemplar": true,
-          "expr": "rate(http_cache_store_native_object_deleted_count{node=~\"$node\", reason=\"lru_nuked\"}[5m])",
+          "expr": "rate(http_cache_store_memory_object_deleted_count{node=~\"$node\", reason=\"lru_nuked\"}[5m])",
           "hide": false,
           "interval": "",
           "legendFormat": "LRU nuked ({{node}})",
@@ -382,7 +382,7 @@
         },
         {
           "exemplar": true,
-          "expr": "rate(http_cache_store_native_object_deleted_count{node=~\"$node\", reason=\"expired\"}[5m])",
+          "expr": "rate(http_cache_store_memory_object_deleted_count{node=~\"$node\", reason=\"expired\"}[5m])",
           "hide": false,
           "interval": "",
           "legendFormat": "Expiration ({{node}})",
@@ -739,14 +739,14 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_lru_nuker_stop_duration{node=~\"$node\",quantile=\"0.5\"}",
+          "expr": "http_cache_store_memory_lru_nuker_stop_duration{node=~\"$node\",quantile=\"0.5\"}",
           "interval": "",
           "legendFormat": "LRU nuker ({{node}})",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_expired_resp_sweeper_stop_duration{node=~\"$node\",quantile=\"0.5\"}",
+          "expr": "http_cache_store_memory_expired_resp_sweeper_stop_duration{node=~\"$node\",quantile=\"0.5\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "Expired responses sweeper ({{node}})",
@@ -754,7 +754,7 @@
         },
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_expired_lru_entry_sweeper_stop_duration{node=~\"$node\",quantile=\"0.5\"}",
+          "expr": "http_cache_store_memory_expired_lru_entry_sweeper_stop_duration{node=~\"$node\",quantile=\"0.5\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "Expired LRU sweeper ({{node}})",
@@ -838,7 +838,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_memory_objects_mem{node=~\"$node\"}",
+          "expr": "http_cache_store_memory_memory_objects_mem{node=~\"$node\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
@@ -922,7 +922,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "http_cache_store_native_memory_lru_mem{node=~\"$node\"}",
+          "expr": "http_cache_store_memory_memory_lru_mem{node=~\"$node\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
@@ -991,7 +991,7 @@
               "options": {
                 "mode": "exclude",
                 "names": [
-                  "concurrency_limit_reached (plug_http_cache_demo@d32e164a97b2)"
+                  "concurrency_limit_reached (plug_http_cache_demo@21c62f2c7860)"
                 ],
                 "prefix": "All except:",
                 "readOnly": true

@@ -29,7 +29,7 @@ In some browsers, typing the F5 key forces a refresh of the page (that is, witho
 caching). You better type the Enter key in the address bar to make sure cached
 versions are used.
 
-It launches with the memory `http_cache_store_native` by default. To use the
+It launches with the memory `http_cache_store_memory` by default. To use the
 `http_cache_store_disk` backend instead, switch to the `disk-backend` branch
 (files will be saved in `/tmp/http_cache/`).
 
@@ -47,7 +47,7 @@ Then visit the 3 instances:
 - [localhost:4002](http://localhost:4002)
 
 and the dashboard: [http://localhost:3000](http://localhost:3000). The login
-and password are bot *admin*. Then click on `http_cache dashboard`.
+and password are both *admin*. Then click on `http_cache dashboard`.
 
 ## Tsung stress test
 
