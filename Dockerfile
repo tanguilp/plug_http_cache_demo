@@ -1,6 +1,6 @@
 ARG MIX_ENV="prod"
 
-FROM hexpm/elixir:1.13.4-erlang-25.0-alpine-3.16.0 as build
+FROM hexpm/elixir:1.14.5-erlang-25.3.2.2-alpine-3.18.0 as build
 
 # install build dependencies
 RUN apk add --no-cache build-base git python3 curl
@@ -47,8 +47,9 @@ RUN mix release
 
 # start a new build stage so that the final image will only contain
 # the compiled release and other runtime necessities
-FROM alpine:3.16.0 AS app
-RUN apk add --no-cache libstdc++ openssl ncurses-libs
+FROM alpine:3.18.0 AS app
+# coreutils contains the df utility, that is needed by disksup
+RUN apk add --no-cache libstdc++ openssl ncurses-libs coreutils
 
 ARG MIX_ENV
 ENV USER="elixir"

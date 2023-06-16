@@ -19,7 +19,7 @@ config :os_mon, :disk_space_check_interval, {:second, 42}
 config :plug_http_cache_demo, :plug_http_cache_opts, %{store: :http_cache_store_disk, collapse_blacklist_duration: 10, compression_alg: :brotli}
 
 config :http_cache_store_disk, :memory_limit, 1024 * 1024 * 40
-config :http_cache_store_disk, :cluster_enabled, false
+config :http_cache_store_disk, :cluster_enabled, true
 config :http_cache_store_disk, :cache_dir, "/tmp/http_cache"
 config :http_cache_store_disk, :enable_persistence, false
 config :http_cache_store_disk, :disk_limit, 0.76
