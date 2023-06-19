@@ -11,7 +11,7 @@ along with a nice Grafana dashboard that shows realtime stats of the caching ser
 
 ## Install & launch
 
-Requires OTP25+.
+Requires OTP26+.
 
 Type
 

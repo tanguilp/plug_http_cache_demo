@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1686930328945,
+  "iteration": 1687177791995,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -345,7 +345,7 @@
               "options": {
                 "mode": "exclude",
                 "names": [
-                  "Alternate key invalidation (plug_http_cache_demo@40b13e91b21c)"
+                  "LRU nuked (memory) (plug_http_cache_demo@3417918447c7)"
                 ],
                 "prefix": "All except:",
                 "readOnly": true
@@ -402,7 +402,7 @@
           "expr": "rate(http_cache_store_disk_object_deleted_count{node=~\"$node\", reason=\"lru_nuked_memory\"}[5m])",
           "hide": false,
           "interval": "",
-          "legendFormat": "LRU nuked ({{node}})",
+          "legendFormat": "LRU nuked (memory) ({{node}})",
           "refId": "C"
         },
         {
@@ -418,7 +418,7 @@
           "expr": "rate(http_cache_store_disk_object_deleted_count{node=~\"$node\", reason=\"lru_nuked_disk\"}[5m])",
           "hide": false,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "LRU nuked (disk) ({{node}})",
           "refId": "E"
         }
       ],
@@ -1060,10 +1060,10 @@
         "current": {
           "selected": true,
           "text": [
-            "All"
+            "plug_http_cache_demo@3417918447c7"
           ],
           "value": [
-            "$__all"
+            "plug_http_cache_demo@3417918447c7"
           ]
         },
         "datasource": null,

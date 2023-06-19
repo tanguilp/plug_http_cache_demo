@@ -5,7 +5,7 @@ defmodule PlugHTTPCacheDemo.MixProject do
     [
       app: :plug_http_cache_demo,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -46,8 +46,8 @@ defmodule PlugHTTPCacheDemo.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:plug_http_cache, "~> 0.2.0"},
-      {:http_cache_store_disk, "~> 0.2.0"},
-      {:plug_cache_control, "~> 1.0"},
+      {:http_cache_store_disk, "~> 0.2.1"},
+      {:plug_cache_control, github: "tanguilp/plug_cache_control"},
       {:telemetry_metrics_statsd, "~> 0.6.0"},
       {:libcluster, "~> 3.0"}
     ]
