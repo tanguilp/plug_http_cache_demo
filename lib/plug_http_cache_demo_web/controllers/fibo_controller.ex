@@ -1,6 +1,8 @@
 defmodule PlugHTTPCacheDemoWeb.FiboController do
   use PlugHTTPCacheDemoWeb, :controller
 
+  alias PlugHTTPCacheDemoWeb.Plug.RangeRequest
+
   @multiples [2, 3, 5, 7, 11, 20]
 
   def index(conn, %{"number" => number_str}) do
@@ -9,6 +11,7 @@ defmodule PlugHTTPCacheDemoWeb.FiboController do
 
     conn
     |> set_alternate_keys(result)
+    |> RangeRequest.attach_callback()
     |> render("index.html", number: number_str, result: result)
   end
 
