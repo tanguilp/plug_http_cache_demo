@@ -28,7 +28,7 @@
 
       <request subst="true">
         <http url="/fibo?number=%%_number%%" method="GET" version="1.1">
-          <http_header name="accept-encoding" value="gzip"/>
+          <http_header name="accept-encoding" value="br, gzip"/>
         </http>
       </request>
     </session>
