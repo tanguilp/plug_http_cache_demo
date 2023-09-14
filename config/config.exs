@@ -14,12 +14,17 @@ config :plug_http_cache_demo, PlugHTTPCacheDemoWeb.Endpoint,
   pubsub_server: PlugHTTPCacheDemo.PubSub,
   live_view: [signing_salt: "/THIbzR3"]
 
-config :plug_http_cache_demo, :plug_http_cache_opts, %{store: :http_cache_store_disk, collapse_blacklist_duration: 10, compression_alg: :br}
+config :plug_http_cache_demo, :plug_http_cache_opts, %{
+  store: :http_cache_store_disk,
+  collapse_blacklist_duration: 10,
+  compression_alg: :br
+}
 
-config :http_cache_store_disk, :memory_limit, 0.9
-config :http_cache_store_disk, :cluster_enabled, true
-config :http_cache_store_disk, :cache_dir, "/tmp/http_cache"
-config :http_cache_store_disk, :persistence_enabled, false
+config :http_cache_store_disk,
+  memory_limit: 0.9,
+  cluster_enabled: true,
+  cache_dir: "/tmp/http_cache",
+  persistence_enabled: true
 
 # Configure esbuild (the version is required)
 config :esbuild,
