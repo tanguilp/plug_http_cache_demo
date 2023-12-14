@@ -48,7 +48,7 @@ defmodule PlugHTTPCacheDemo.MixProject do
       {:http_cache, "~> 0.3.0"},
       {:plug_http_cache, "~> 0.3.0"},
       {:http_cache_store_disk, "~> 0.3.0"},
-      {:plug_cache_control, github: "tanguilp/plug_cache_control"},
+      {:plug_cache_control, "~> 1.0"},
       {:telemetry_metrics_statsd, "~> 0.6.0"},
       {:libcluster, "~> 3.0"}
     ]
