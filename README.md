@@ -11,7 +11,7 @@ along with a nice Grafana dashboard that shows realtime stats of the caching ser
 
 ## Install & launch
 
-Requires OTP26+.
+Requires OTP25+. The `disk-backend` branch requires OTP26+
 
 Type
 
