@@ -36,11 +36,15 @@ defmodule PlugHTTPCacheDemo.Application do
   end
 
   defp env_specific_children(:prod) do
-    [{TelemetryMetricsStatsd, metrics: PlugHTTPCacheDemo.Telemetry.metrics(), host: "statsd_exporter", formatter: :datadog}]
+    [
+      {TelemetryMetricsStatsd,
+       metrics: PlugHTTPCacheDemo.Telemetry.metrics(),
+       host: "statsd_exporter",
+       formatter: :datadog}
+    ]
   end
 
   defp env_specific_children(_) do
     []
   end
-
 end

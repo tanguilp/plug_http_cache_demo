@@ -2,6 +2,8 @@ defmodule PlugHTTPCacheDemoWeb.Router do
   use PlugHTTPCacheDemoWeb, :router
   import Phoenix.LiveDashboard.Router
 
+  alias PlugHTTPCacheDemoWeb.Plug
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -9,7 +11,9 @@ defmodule PlugHTTPCacheDemoWeb.Router do
     plug :put_root_layout, {PlugHTTPCacheDemoWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug PlugHTTPCache, Application.get_env(:plug_http_cache_demo, :plug_http_cache_opts)
+    plug Plug.SetABTestCookie
+    plug Plug.SetABTestHeader
+    plug PlugHTTPCache, Application.compile_env(:plug_http_cache_demo, :plug_http_cache_opts)
   end
 
   pipeline :cache_responses do

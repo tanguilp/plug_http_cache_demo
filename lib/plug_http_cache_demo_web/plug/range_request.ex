@@ -39,12 +39,18 @@ defmodule PlugHTTPCacheDemoWeb.Plug.RangeRequest do
   end
 
   defp set_body(conn, body_bin, start_offset, end_offset) do
-    %Plug.Conn{conn | resp_body: :binary.part(body_bin, start_offset, end_offset - start_offset + 1)}
+    %Plug.Conn{
+      conn
+      | resp_body: :binary.part(body_bin, start_offset, end_offset - start_offset + 1)
+    }
   end
 
   defp set_headers(conn, start_offset, end_offset, body_len) do
     conn
-    |> Plug.Conn.put_resp_header("content-range", "bytes #{start_offset}-#{end_offset}/#{body_len}")
+    |> Plug.Conn.put_resp_header(
+      "content-range",
+      "bytes #{start_offset}-#{end_offset}/#{body_len}"
+    )
     |> Plug.Conn.put_resp_header("content-length", to_string(end_offset - start_offset + 1))
   end
 end
