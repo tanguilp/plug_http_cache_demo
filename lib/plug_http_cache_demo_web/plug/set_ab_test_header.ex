@@ -8,6 +8,8 @@ defmodule PlugHTTPCacheDemoWeb.Plug.SetABTestHeader do
   def call(conn, _opts) do
     ab_test = Plug.Conn.get_session(conn, "ab-test") || raise "Missing ab test cookie value"
 
-    Plug.Conn.put_req_header(conn, "ab-test", ab_test)
+    conn
+    |> Plug.Conn.delete_req_header("ab-test") # Do not let clients set it
+    |> Plug.Conn.put_req_header("ab-test", ab_test)
   end
 end
