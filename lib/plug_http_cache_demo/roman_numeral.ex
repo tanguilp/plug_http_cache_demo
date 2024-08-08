@@ -1,25 +1,19 @@
 defmodule PlugHTTPCacheDemo.RomanNumeral do
-  @numerals [
-    {50, "L"},
-    {40, "XL"},
-    {10, "X"},
-    {9, "IX"},
-    {5, "V"},
-    {4, "IV"},
-    {1, "I"}
-  ]
+    def convert(n) when n >= 1000, do: remove_and_continue(n, "M", 1000)
+  def convert(n) when n >= 900,  do: remove_and_continue(n, "CM", 900)
+  def convert(n) when n >= 500,  do: remove_and_continue(n, "D", 500)
+  def convert(n) when n >= 400,  do: remove_and_continue(n, "CD", 400)
+  def convert(n) when n >= 100,  do: remove_and_continue(n, "C", 100)
+  def convert(n) when n >= 90,   do: remove_and_continue(n, "XC", 90)
+  def convert(n) when n >= 50,   do: remove_and_continue(n, "L", 50)
+  def convert(n) when n >= 40,   do: remove_and_continue(n, "XL", 40)
+  def convert(n) when n >= 10,   do: remove_and_continue(n, "X", 10)
+  def convert(9),                do: "IX"
+  def convert(n) when n >= 5,    do: remove_and_continue(n, "V", 5)
+  def convert(4),                do: "IV"
+  def convert(n),                do: String.duplicate("I", n)
 
-  def convert(number) do
-    convert(number, @numerals)
-  end
-
-  defp convert(0, _numerals), do: ""
-
-  defp convert(number, [{arabic, roman} | tail]) when number >= arabic do
-    roman <> convert(number - arabic, [{arabic, roman} | tail])
-  end
-
-  defp convert(number, [{arabic, _roman} | tail]) when number < arabic do
-    convert(number, tail)
+  defp remove_and_continue(total, roman, number) do
+    String.duplicate(roman, div(total, number)) <> convert(rem(total, number))
   end
 end
