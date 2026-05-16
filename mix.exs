@@ -45,9 +45,9 @@ defmodule PlugHTTPCacheDemo.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:http_cache, "~> 0.3.0"},
-      {:plug_http_cache, "~> 0.3.0"},
-      {:http_cache_store_memory, "~> 0.3.0"},
+      {:http_cache, "~> 1.0"},
+      {:plug_http_cache, "~> 1.0"},
+      {:http_cache_store_memory, "~> 1.0"},
       {:plug_cache_control, "~> 1.0"},
       {:telemetry_metrics_statsd, "~> 0.6.0"},
       {:libcluster, "~> 3.0"}
